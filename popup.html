@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Price Deflector</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">PRICE DEFLECTOR</p>
+        <h1>Baseline check</h1>
+      </header>
+      <section id="loading" class="state">Checking this product page…</section>
+      <section id="result" hidden>
+        <p id="product-title" class="product-title"></p>
+        <div class="price-grid" aria-label="Price comparison">
+          <div class="price-card">
+            <span>Price shown to you</span>
+            <strong id="shown-price">—</strong>
+          </div>
+          <div class="price-card">
+            <span>Baseline check</span>
+            <strong id="baseline-price">—</strong>
+          </div>
+        </div>
+        <p id="delta" class="delta"></p>
+        <button id="compare-sources" class="secondary" type="button">Compare source prices</button>
+        <section id="source-comparison" class="source-comparison" hidden>
+          <h2>Source comparison</h2>
+          <p id="source-summary" class="state"></p>
+          <ul id="source-prices" class="source-prices"></ul>
+          <p id="source-note" class="caveat"></p>
+          <button id="buy-best-price" type="button" hidden>Buy at the best price</button>
+        </section>
+        <p class="caveat">A difference may reflect personalization, testing, inventory, timing, regional pricing, or server-side randomness. It is worth double-checking—not proof of discrimination.</p>
+        <button id="recheck" type="button">Re-check</button>
+        <p id="throttle-note" class="small" hidden>Please wait at least 3 seconds between checks.</p>
+      </section>
+      <section id="unverified" hidden>
+        <h2>Couldn’t verify this page</h2>
+        <p id="unverified-message"></p>
+        <p class="caveat">Price Deflector supports selected Amazon India, Flipkart, and date-specific Airbnb India listings. It never sends data to a third-party service.</p>
+      </section>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

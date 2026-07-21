@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Price Deflector",
+  "version": "0.1.0",
+  "description": "Locally compares the displayed product price with a clean baseline fetch.",
+  "permissions": ["storage", "activeTab", "tabs", "offscreen", "declarativeNetRequest"],
+  "host_permissions": [
+    "https://www.amazon.in/*",
+    "https://www.flipkart.com/*",
+    "https://www.airbnb.co.in/*",
+    "https://airbnb.co.in/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Price Deflector",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.amazon.in/dp/*",
+        "https://www.amazon.in/*/dp/*",
+        "https://www.amazon.in/gp/product/*",
+        "https://www.flipkart.com/*/p/*",
+        "https://www.airbnb.co.in/rooms/*",
+        "https://airbnb.co.in/rooms/*"
+      ],
+      "js": ["extractor.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
